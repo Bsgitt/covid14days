@@ -3,7 +3,18 @@ import React, { useEffect, useState } from 'react'
 import { registerUser } from '../firebase.config'
 import { Link } from 'react-router-dom'
 import { toast } from './toast'
+import { object, string } from 'yup';
+import { Controller, useForm } from 'react-hook-form';
+
 const Register: React.FC = () => {
+  
+  const validationSchema = object().shape({
+    email: string().required().email(),
+    userName: string().required().min(5).max(32),
+    password: string().required().min(8),
+  });
+  const { control, handleSubmit } = useForm();
+  
   const [busy, setBusy] = useState<boolean>(false)
 
   const [username, setUserName] = useState('')
