@@ -12,5 +12,4 @@ _(built with Ionic React in 2019 for SSUI)_
 
 ## Preview
 
-<img alt="demo" src="preview/ionic-react-todo-demo.gif" width="250"/>
 # covid14days
