@@ -1,5 +1,5 @@
 {
-  "name": "ionic-react-simple-todo-list",
+  "name": "covid14days",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -43,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "index.js",
+  "repository": "https://github.com/Bsgitt/covid14days.git",
+  "license": "MIT"
 }

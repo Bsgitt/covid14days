@@ -28,6 +28,7 @@ class Report extends Component {
   state = {
     todoList: [
       {
+        createAt: "",
         content: "",
         finished: false
       },
@@ -69,7 +70,8 @@ class Report extends Component {
     let newTodoList = [...this.state.todoList];
     newTodoList.push({
       content: this.state.newTodoContent,
-      finished: false
+      finished: false,
+      createAt: new Date().toLocaleString()
     });
 
     this.setState({
@@ -111,7 +113,7 @@ class Report extends Component {
     return (
       <IonPage>
         <IonHeader>
-          <IonToolbar>
+          <IonToolbar color='primary'>
           <IonButtons slot="start">
           <IonBackButton defaultHref="home" />
         </IonButtons>
@@ -134,6 +136,7 @@ class Report extends Component {
                       checked={todoItem.finished}
                     />
                     <IonLabel>{todoItem.content}</IonLabel>
+                    <IonLabel>{todoItem.createAt}</IonLabel>
                   </IonItem>
                   <IonItemOptions side="end">
                     <IonItemOption
@@ -161,7 +164,7 @@ class Report extends Component {
             <IonHeader>
               <IonToolbar>
                 <IonButtons>
-                  <IonTitle>New Todo</IonTitle>
+                  <IonTitle>ADD YOUR SYMPTOM</IonTitle>
                   <IonButton onClick={() => this.toggleModalOpenStatus()}>
                     <IonIcon icon={close} />
                   </IonButton>

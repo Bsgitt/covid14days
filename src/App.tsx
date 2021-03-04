@@ -27,18 +27,19 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 import Report from "./pages/Report";
+import Stat from "./pages/Stat";
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-      <Route path="/login" component={Login} exact={true} />
-          <Redirect exact from="/" to="/login" />
-        <Route path="/checking" component={CheckList}  />
-        <Route path="/register" component={Register}  />
-        <Route path="/report" component={Report}  />
-        <Route path="/home" component={Home}  />
-      
+        <Route path="/login" component={Login} exact={true} />
+        <Redirect exact from="/" to="/login" />
+        <Route path="/checking" component={CheckList} />
+        <Route path="/register" component={Register} />
+        <Route path="/report" component={Report} />
+        <Route path="/home" component={Home} />
+        <Route path="/stat" component={Stat} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

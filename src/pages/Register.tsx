@@ -28,7 +28,7 @@ const Register: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color='primary'>
           <IonTitle>Register</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -40,7 +40,7 @@ const Register: React.FC = () => {
         <IonInput type="password" placeholder="Password" onIonChange={(e: any) => setPassword(e.target.value)} />
         <IonInput type="password" placeholder="ConfirmPassword" onIonChange={(e: any) => setCPassword(e.target.value)} />
 
-        <IonButton onClick={register} expand="block" routerLink="/login" fill="outline">Register</IonButton>
+        <IonButton onClick={register} expand="block" routerLink="/login">Register</IonButton>
         <p>Already have an Account ?  <Link to="/login">Login</Link></p>
 
       </IonContent>
