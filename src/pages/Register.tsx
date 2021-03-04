@@ -1,4 +1,4 @@
-import { IonLoading, IonButton, IonContent, IonHeader, IonInput, IonPage, IonTitle, IonToolbar } from '@ionic/react'
+import { IonLoading, IonButton, IonContent, IonHeader, IonInput, IonPage, IonTitle, IonToolbar, IonImg, IonItem } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { registerUser } from '../firebase.config'
 import { Link } from 'react-router-dom'
@@ -34,11 +34,21 @@ const Register: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding">
-      <IonLoading message="please wait.." duration={1} isOpen={busy} />
+        <IonImg src="./assets/register.svg" />
 
-        <IonInput type="text" placeholder="Username or Email" onIonChange={(e: any) => setUserName(e.target.value)} />
-        <IonInput type="password" placeholder="Password" onIonChange={(e: any) => setPassword(e.target.value)} />
-        <IonInput type="password" placeholder="ConfirmPassword" onIonChange={(e: any) => setCPassword(e.target.value)} />
+        <IonLoading message="please wait.." duration={1} isOpen={busy} />
+        <IonItem>
+          <IonInput type="text" placeholder="Username or Email" onIonChange={(e: any) => setUserName(e.target.value)} />
+
+        </IonItem>
+        <IonItem>
+          <IonInput type="password" placeholder="Password" onIonChange={(e: any) => setPassword(e.target.value)} />
+
+        </IonItem>
+        <IonItem>
+          <IonInput type="password" placeholder="ConfirmPassword" onIonChange={(e: any) => setCPassword(e.target.value)} />
+
+        </IonItem>
 
         <IonButton onClick={register} expand="block" routerLink="/login">Register</IonButton>
         <p>Already have an Account ?  <Link to="/login">Login</Link></p>
