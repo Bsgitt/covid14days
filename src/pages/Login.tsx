@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { userLogin } from '../firebase.config'
 import { Link } from 'react-router-dom'
 import { toast } from './toast'
-import { object, string } from 'yup';
 const Login: React.FC = () => {
   const [busy, setBusy] = useState<boolean>(false)
   const [username, setUserName] = useState('')
