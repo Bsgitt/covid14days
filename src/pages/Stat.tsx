@@ -23,16 +23,16 @@ const Stat: React.FC = () => {
 
         <IonApp>
             <IonHeader>
-                <IonToolbar color="primary">
+                
                 <IonHeader>
           <IonToolbar color='primary'>
           <IonButtons slot="start">
-          <IonBackButton defaultHref="home" />
+          <IonBackButton defaultHref="" />
         </IonButtons>
             <IonTitle>STATISTICS</IonTitle>
           </IonToolbar>
         </IonHeader>
-                </IonToolbar>
+             
             </IonHeader>
             <IonContent>
             <IonLoading message="please wait.." duration={0.1} isOpen={isLoading}/>
