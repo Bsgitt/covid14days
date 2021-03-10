@@ -1,17 +1,24 @@
 import { IonButton, IonContent, IonFooter, IonHeader, IonImg, IonInput, IonItem, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { userLogin } from '../firebase.config'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from './toast'
+import { setUserState } from '../redux/actions'
+import { useDispatch } from 'react-redux'
 const Login: React.FC = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const [busy, setBusy] = useState<boolean>(false)
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   async function login() {
-    const res = await userLogin(username, password)
     setBusy(true)
+    const res :any = await userLogin(username, password)
     if (res) {
+      dispatch(setUserState(res.user.email))
+      history.replace('/home')
       toast('YOU HAVE LOGIN !')
+      console.log(res)
     }
     setBusy(false)
   }
@@ -28,7 +35,7 @@ const Login: React.FC = () => {
 
         <IonLoading message="please wait.." duration={0} isOpen={busy} />
         <IonItem>
-          <IonInput placeholder="Username or Email" type="email" onIonChange={(e: any) => setUserName(e.target.value)} />
+          <IonInput placeholder="Username" type="text" onIonChange={(e: any) => setUserName(e.target.value)} />
 
         </IonItem>
         <IonItem>
@@ -36,7 +43,7 @@ const Login: React.FC = () => {
 
         </IonItem>
 
-        <IonButton onClick={login} expand="block" routerLink="/home" fill="solid">Log In</IonButton>
+        <IonButton onClick={login} expand="block" fill="solid">Log In</IonButton>
         <p>New Account?  <Link to="/register">register</Link></p>
 
       </IonContent>

@@ -38,7 +38,7 @@ const Register: React.FC = () => {
 
         <IonLoading message="please wait.." duration={1} isOpen={busy} />
         <IonItem>
-          <IonInput type="text" placeholder="Username or Email" onIonChange={(e: any) => setUserName(e.target.value)} />
+          <IonInput type="text" placeholder="Username" onIonChange={(e: any) => setUserName(e.target.value)} />
 
         </IonItem>
         <IonItem>

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet } from "@ionic/react";
+import { IonApp, IonButton, IonRouterOutlet, IonSpinner } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import CheckList from "./pages/CheckList";
 import Login from "./pages/Login";
 import Register from './pages/Register'
 import Home from './pages/Home'
+
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -28,21 +29,51 @@ import "./theme/variables.css";
 
 import Report from "./pages/Report";
 import Stat from "./pages/Stat";
+import { getCurrentUser } from './firebase.config'
+import { setUserState } from "./redux/actions";
+import { useDispatch } from "react-redux";
 
-const App: React.FC = () => (
-  <IonApp>
+const RoutingSystem: React.FC = () => {
+  return (
+
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route path="/login" component={Login} exact={true} />
+        <Route path="/home" component={Home} exact />
         <Redirect exact from="/" to="/login" />
-        <Route path="/checking" component={CheckList} />
-        <Route path="/register" component={Register} />
-        <Route path="/report" component={Report} />
-        <Route path="/home" component={Home} />
+        {/* <Route path="/home" component={Home} exact /> */}
+        <Route path="/login" component={Login} exact />
         <Route path="/stat" component={Stat} />
+        <Route path="/register" component={Register} exact />
+        <Route path="/checking" component={CheckList} />
+        <Route path="/report" component={Report} />
       </IonRouterOutlet>
     </IonReactRouter>
-  </IonApp>
-);
+  )
+
+}
+
+const App: React.FC = () => {
+  const dispatch = useDispatch()
+  const [busy, setBusy] = useState(true)
+  useEffect(() => {
+    getCurrentUser().then((user: any) => {
+      if (user) {
+        dispatch(setUserState(user.email))
+        window.history.replaceState({}, '/home', '')
+      } else {
+        window.history.replaceState({}, '/', '')
+
+      }
+      setBusy(false)
+    })
+  }, [])
+  return (
+    <IonApp>
+      {busy ? <IonSpinner /> :
+
+        <RoutingSystem />}
+    </IonApp>
+  )
+};
 
 export default App;
