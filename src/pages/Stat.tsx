@@ -20,22 +20,15 @@ const Stat: React.FC = () => {
     }, []);
 
     return (
+<IonContent
+    scrollEvents={true}
+    onIonScrollStart={() => {}}
+    onIonScroll={() => {}}
+    onIonScrollEnd={() => {}}>
+      <h1>Main Content</h1>
 
-        <IonApp>
-            <IonHeader>
-                
-                <IonHeader>
-          <IonToolbar color='primary'>
-          <IonButtons slot="start">
-          <IonBackButton defaultHref="" />
-        </IonButtons>
-            <IonTitle>STATISTICS</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-             
-            </IonHeader>
-            <IonContent>
-            <IonLoading message="please wait.." duration={0.1} isOpen={isLoading}/>
+      <div slot="fixed">
+      <IonLoading message="please wait.." duration={0.1} isOpen={isLoading}/>
                 <IonRow>
                     <IonCol>
                     {Object.keys(data).map((item, i) => (
@@ -52,8 +45,41 @@ const Stat: React.FC = () => {
                     </IonCol>
                 </IonRow>
                 
-            </IonContent>
-        </IonApp>
+      </div>
+  </IonContent>
+        // <IonApp>
+        //     <IonHeader>
+                
+        //         <IonHeader>
+        //   <IonToolbar color='primary'>
+        //   <IonButtons slot="start">
+        //   <IonBackButton defaultHref="" />
+        // </IonButtons>
+        //     <IonTitle>STATISTICS</IonTitle>
+        //   </IonToolbar>
+        // </IonHeader>
+             
+        //     </IonHeader>
+        //     <IonContent>
+            // <IonLoading message="please wait.." duration={0.1} isOpen={isLoading}/>
+            //     <IonRow>
+            //         <IonCol>
+            //         {Object.keys(data).map((item, i) => (
+            //        <IonItemSliding key={i}>
+            //        <IonItem>
+            //          <IonLabel>
+            //              <h2>{item}</h2>
+            //            <h3>{data[item]}</h3>
+            //          </IonLabel>
+            //        </IonItem>
+                   
+            //      </IonItemSliding>
+            //     ))}
+            //         </IonCol>
+            //     </IonRow>
+                
+        //     </IonContent>
+        // </IonApp>
     )
 
 }

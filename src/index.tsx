@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-
+import './assets/font.css'
 import reducer from './redux/reducer';
 const store = createStore(reducer)
 

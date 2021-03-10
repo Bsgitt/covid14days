@@ -32,7 +32,7 @@ class Report extends Component {
         content: "",
         finished: false
       },
-      
+
     ],
     modalOpen: false,
     newTodoContent: ""
@@ -114,14 +114,14 @@ class Report extends Component {
       <IonPage>
         <IonHeader>
           <IonToolbar color='primary'>
-          <IonButtons slot="start">
-          <IonBackButton defaultHref="home" />
-        </IonButtons>
+            <IonButtons slot="start">
+              <IonBackButton defaultHref="home" />
+            </IonButtons>
             <IonTitle>Covid 14 days</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-        <IonToolbar>
+          <IonToolbar>
             <IonTitle>ประวัติของคุณ</IonTitle>
           </IonToolbar>
           <IonList ref={me => (this.listRef = me)}>

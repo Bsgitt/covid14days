@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonButton, IonRouterOutlet, IonSpinner } from "@ionic/react";
+import { IonApp, IonButton, IonContent, IonRouterOutlet, IonSpinner } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import CheckList from "./pages/CheckList";
 import Login from "./pages/Login";
@@ -19,7 +19,6 @@ import "@ionic/react/css/typography.css";
 /* Optional CSS utils that can be commented out */
 import "@ionic/react/css/padding.css";
 import "@ionic/react/css/float-elements.css";
-import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
@@ -69,9 +68,12 @@ const App: React.FC = () => {
   }, [])
   return (
     <IonApp>
-      {busy ? <IonSpinner /> :
-
-        <RoutingSystem />}
+      <IonContent>
+        {busy ?
+          <IonSpinner />
+          :
+          <RoutingSystem />}
+      </IonContent>
     </IonApp>
   )
 };
