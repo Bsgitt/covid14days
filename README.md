@@ -13,3 +13,4 @@ _(built with Ionic React in 2019 for SSUI)_
 ## Preview
 
 # covid14days
+#https://drive.google.com/file/d/1NLRfMNRUJIbzBz2sJlf1FvUHgYIrAODD/view?usp=sharing
