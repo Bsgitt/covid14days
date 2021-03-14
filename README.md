@@ -1,4 +1,4 @@
-# Simple Todo List
+# PROJECT
 
 _(built with Ionic React in 2019 for SSUI)_
 
